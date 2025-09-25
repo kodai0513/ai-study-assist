@@ -59,9 +59,7 @@ export const AiChatPopup: React.FC = () => {
             sender: 'ai',
         };
         setMessages((prevMessages) => 
-            prevMessages.map((msg) => 
-                msg.id === loadingMessageId ? { ...msg, text: answer } : msg
-            )
+          prevMessages.filter((msg) => msg.id !== loadingMessageId)
         );
         setMessages((prev) => [...prev, aiResponse]);
     } catch(error) {

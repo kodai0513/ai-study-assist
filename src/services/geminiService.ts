@@ -34,7 +34,7 @@ export const generateAiComment = async (stats: StudyStats, session: StudySession
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.0-flash-lite',
       contents: prompt,
       config: {
         systemInstruction,
@@ -52,14 +52,12 @@ export const askAiAboutStudy = async (question: string): Promise<string> => {
   // AIの役割を定義するシステム指示
   const systemInstruction = `
     あなたは優秀なアシスタントAIです。
-    提供されたユーザーの学習データに関する質問に、データに基づいて正確に答えてください。
+    ユーザーに適切にアドバイスできる凄腕講師のような存在です。
   `;
 
   // AIに渡すプロンプト本体
   const prompt = `
-    以下の学習データを背景情報として、ユーザーからの質問に答えてください。
-    答えは提供されたデータに記載されている事実にのみ基づいてください。
-    もし情報がデータ内に存在しない場合は、「データからは分かりませんでした」と正直に回答してください。
+    ベテラン講師なのでメッセージは簡潔にまた親みやすく接してほしい。
 
     ---
     # ユーザーの質問:
@@ -68,7 +66,7 @@ export const askAiAboutStudy = async (question: string): Promise<string> => {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.5-flash',
       contents: prompt,
       config: {
         systemInstruction,
