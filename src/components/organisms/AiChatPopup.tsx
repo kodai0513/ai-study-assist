@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, FormEvent } from 'react';
 import { MessageCircle, Send, X } from 'lucide-react';
 import { askAiAboutStudy } from '../../services/geminiService';
+import ReactMarkdown from 'react-markdown';
 import { ulid } from 'ulid';
 
 // メッセージの型定義
@@ -97,12 +98,19 @@ export const AiChatPopup: React.FC = () => {
               key={msg.id}
               className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
-              <div
-                className={`max-w-xs md:max-w-sm rounded-lg px-4 py-2 text-white
-                  ${msg.sender === 'user' ? 'bg-blue-600' : 'bg-slate-600'}`}
-              >
-                {msg.text}
-              </div>
+              {msg.sender === 'user' ? (
+                <div
+                  className='max-w-xs md:max-w-sm rounded-lg px-4 py-2 text-white bg-blue-600 prose-invert'
+                >
+                  {msg.text}
+                </div>
+              ) : (
+                <div
+                  className='max-w-xs md:max-w-sm rounded-lg px-4 py-2 text-white bg-slate-600 prose-invert'
+                >
+                  <ReactMarkdown>{msg.text}</ReactMarkdown>
+                </div>
+              )}
             </div>
           ))}
           <div ref={messagesEndRef} />

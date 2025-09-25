@@ -58,6 +58,7 @@ export const askAiAboutStudy = async (question: string): Promise<string> => {
   // AIに渡すプロンプト本体
   const prompt = `
     ベテラン講師なのでメッセージは簡潔にまた親みやすく接してほしい。
+    回答は読みやすいように、**Markdown形式**で記述してください。見出し、リスト、太字などを適切に使用してください。
 
     ---
     # ユーザーの質問:
