@@ -19,7 +19,7 @@ export const useTimer = () => {
         if(timer.mode === 'focus') {
           setSessionTotal(1);
         }
-      }, 0.01);
+      }, 1000);
     } else if (timer.timeLeft === 0 && timer.isRunning) {
       
       if (timer.mode === 'focus') {
