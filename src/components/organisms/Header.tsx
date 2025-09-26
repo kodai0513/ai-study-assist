@@ -14,7 +14,6 @@ export const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
     <header className="bg-slate-800 border-b border-slate-700 px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Icon icon={Brain} size="xl" color="text-blue-400" />
           <Text variant="h3" color="white" weight="semibold">
             Focus
           </Text>
