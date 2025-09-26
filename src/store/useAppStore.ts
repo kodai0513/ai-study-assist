@@ -11,6 +11,7 @@ interface AppState {
   // Study sessions
   sessions: StudySession[];
   comments: StudyAiComment[];
+  isMusic: boolean;
   
   // Actions
   setTimerMode: (mode: TimerMode) => void;
@@ -23,6 +24,7 @@ interface AppState {
   changeBreakTime: () => void;
   changeFocusTime: () => void;
   setSessionTotal: (second: number) => void;
+  setIsMusic: (value: boolean) => void;
   
   // Computed stats
   getStats: () => StudyStats;
@@ -42,6 +44,7 @@ export const useAppStore = create<AppState>()(
         currentSession: null,
         theme: '',
       },
+      isMusic: false,
       sessionTotal: 0,
       sessions: [],
       comments: [],
@@ -190,7 +193,13 @@ export const useAppStore = create<AppState>()(
         set((state) => ({
           sessionTotal: state.sessionTotal + second
         }));
-      }
+      },
+
+      setIsMusic: (value) => {
+        set((_) => ({
+          isMusic: value
+        }))
+      },
     }),
     {
       name: 'ai-focus-partner-storage',

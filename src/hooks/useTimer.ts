@@ -50,7 +50,7 @@ export const useTimer = () => {
   };
 
   const getProgress = () => {
-    const totalTime = timer.mode === 'focus' ? 25 * 60 : 5 * 60;
+    const totalTime = timer.mode === 'focus' ? 25  * 60 : 5 * 60;
     return ((totalTime - timer.timeLeft) / totalTime) * 100;
   };
 

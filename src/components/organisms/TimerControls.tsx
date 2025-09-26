@@ -9,7 +9,7 @@ import { Text } from '../atoms/Text';
 
 export const TimerControls: React.FC = () => {
   const { timer } = useTimer();
-  const { startSession, setTheme, completeSession } = useAppStore();
+  const { isMusic, startSession, setTheme, completeSession, setIsMusic } = useAppStore();
   const [themeInput, setThemeInput] = useState(timer.theme);
 
   const handleStart = () => {
@@ -50,6 +50,14 @@ export const TimerControls: React.FC = () => {
           icon={Play}
         >
           {timer.mode === 'idle' ? '勉強開始' : '勉強終了' }
+        </Button>
+        <Button
+          onClick={() => setIsMusic(!isMusic)}
+          disabled={!canStart}
+          variant={isMusic ? "secondary" : "success"}
+          icon={Play}
+        >
+          {isMusic ? 'BGMオフ' : 'BGMオン' }
         </Button>
       </div>
     </div>

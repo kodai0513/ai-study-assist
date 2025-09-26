@@ -12,9 +12,9 @@ const queryClient = new QueryClient();
 
 function App() {
   const [activeView, setActiveView] = useState<'focus' | 'dashboard'>('focus');
-  const { timer } = useAppStore();
-  const isFocusMusicPlaying = timer.isRunning && timer.mode === 'focus';
-  const isBreakMusicPlaying = timer.isRunning && timer.mode === 'break';
+  const { timer, isMusic } = useAppStore();
+  const isFocusMusicPlaying = isMusic && timer.isRunning && timer.mode === 'focus';
+  const isBreakMusicPlaying = isMusic && timer.isRunning && timer.mode === 'break';
 
   return (
     <QueryClientProvider client={queryClient}>
