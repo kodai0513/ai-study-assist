@@ -1,7 +1,6 @@
 import React from 'react';
-import { Brain, Timer, BarChart3 } from 'lucide-react';
+import { Timer, BarChart3 } from 'lucide-react';
 import { Text } from '../atoms/Text';
-import { Icon } from '../atoms/Icon';
 import { NavigationItem } from '../molecules/NavigationItem';
 
 export interface HeaderProps {
