@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
         <div className="flex items-center space-x-3">
           <Icon icon={Brain} size="xl" color="text-blue-400" />
           <Text variant="h3" color="white" weight="semibold">
-            AI学習パートナー
+            Focus
           </Text>
         </div>
         
